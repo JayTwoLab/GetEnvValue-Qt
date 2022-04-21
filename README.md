@@ -2,7 +2,13 @@
 
 - Get environment value in Qt
 
-## QtGetEnv::GetOSPath()
+## namespace 
+
+- QtGetEnv
+
+## GetOSPath()
+
+- example code
 
 ```cpp
 // main.cpp
@@ -25,5 +31,3 @@ int main(int argc, char *argv[])
     return 0; 
 }
 ```
-
-
