@@ -8,15 +8,20 @@
 #include <QByteArray>
 #include <QRegularExpression>
 
-namespace QtGetEnv
+namespace j2
 {
 
-///
-/// \brief Get path list of OS
-/// \return path list of OS
-///
-QStringList GetOSPath();
+    namespace Qt6
+    {
 
-}
+        ///
+        /// \brief Get path list of OS
+        /// \return path list of OS
+        ///
+        QStringList GetOSPath();
+
+    } // namespace Qt6
+
+} // namespace j2
 
 #endif

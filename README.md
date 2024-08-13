@@ -1,16 +1,18 @@
 # GetEnvValue-Qt
 
-- Get environment value in Qt
+- Get environment value using Qt
+
+- C++ 17 or higher version 
 
 ## namespace 
 
-- QtGetEnv
+- ```j2::Qt6```
 
 ## GetOSPath()
 
 - example code
 
-```cpp
+```
 // main.cpp
 
 #include <QCoreApplication>
@@ -22,7 +24,7 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    QStringList pathList = QtGetEnv::GetOSPath();
+    QStringList pathList = j2::Qt6::GetOSPath();
     foreach (QString pathName, pathList)
     {
         qDebug() << pathName;
@@ -31,3 +33,10 @@ int main(int argc, char *argv[])
     return 0; 
 }
 ```
+
+## License
+
+- GetEnvValue-Qt is under MIT License. https://github.com/j2doll/GetEnvValue-Qt
+- This is a part of j2 library.
+
+

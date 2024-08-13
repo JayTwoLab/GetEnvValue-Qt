@@ -4,8 +4,9 @@
 
 #include <QDebug>
 
-namespace QtGetEnv
-{
+namespace j2 {
+
+namespace Qt6 {
 
 #ifdef Q_OS_WIN
 
@@ -88,4 +89,6 @@ QStringList GetOSPath()
 #endif
 
 
-} // end of namespace
+} // namespace QtGetEnv
+
+} // namespace j2

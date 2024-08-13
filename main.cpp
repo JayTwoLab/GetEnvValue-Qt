@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    QStringList pathList = QtGetEnv::GetOSPath();
+    QStringList pathList = j2::Qt6::GetOSPath();
     foreach (QString pathName, pathList)
     {
         qDebug() << pathName;
