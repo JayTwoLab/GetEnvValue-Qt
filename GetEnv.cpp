@@ -2,17 +2,11 @@
 
 #include "GetEnv.h"
 
-#ifdef Q_QT_VERSION
-
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-
-// #include <QDebug>
 
 namespace j2 {
 
 namespace Qt6 {
-
-#ifdef Q_OS_WIN
 
 QStringList GetOSPath()
 {
@@ -25,57 +19,14 @@ QStringList GetOSPath()
     QString str = QString(baEnv);
     // qDebug() << str;
 
+#ifdef Q_OS_WIN
     QRegularExpression rx("(\\;)"); // token is ;
-    ret = str.split(rx);
-
-    return ret;
-}
-
 #endif
-
-#ifdef Q_OS_LINUX
-
-QStringList GetOSPath()
-{
-    QStringList ret;
-
-    QByteArray baEnv = qgetenv("PATH"); // use in Linux
-    if ( baEnv.length() == 0 )
-        return ret;
-
-    QString str = QString(baEnv);
-    // qDebug() << str;
-
+    
+#if defined(Q_OS_LINUX) || defined(Q_OS_MAC)  
     QRegularExpression rx("(\\:)"); // token is :
+#endif     
     ret = str.split(rx);
-
-    return ret;
-}
-
-#endif
-
-#ifdef Q_OS_MAC
-
-QStringList GetOSPath()
-{
-    QStringList ret;
-
-    QByteArray baEnv = qgetenv("PATH"); // use in Mac
-    if ( baEnv.length() == 0 )
-        return ret;
-
-    QString str = QString(baEnv);
-    // qDebug() << str;
-
-    QRegularExpression rx("(\\:)"); // token is :
-    ret = str.split(rx);
-
-    return ret;
-}
-
-#endif
-
-// TODO: define your own OS function ...
 
 #ifdef Q_OS_ANDROID
 #endif
@@ -90,7 +41,10 @@ QStringList GetOSPath()
 #endif
 
 #ifdef Q_OS_OPENBSD
-#endif
+#endif    
+    
+    return ret;
+}
 
 
 } // namespace QtGetEnv
@@ -98,5 +52,3 @@ QStringList GetOSPath()
 } // namespace j2
 
 #endif // #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-
-#endif // #ifdef Q_QT_VERSION
