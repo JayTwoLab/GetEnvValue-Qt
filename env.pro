@@ -1,3 +1,7 @@
+
+TARGET = GetEnvValue-Tester
+
+QT += core
 QT -= gui
 
 CONFIG += c++17
