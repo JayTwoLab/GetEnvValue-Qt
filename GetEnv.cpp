@@ -2,7 +2,11 @@
 
 #include "GetEnv.h"
 
-#include <QDebug>
+#ifdef Q_QT_VERSION
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+
+// #include <QDebug>
 
 namespace j2 {
 
@@ -92,3 +96,7 @@ QStringList GetOSPath()
 } // namespace QtGetEnv
 
 } // namespace j2
+
+#endif // #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+
+#endif // #ifdef Q_QT_VERSION
