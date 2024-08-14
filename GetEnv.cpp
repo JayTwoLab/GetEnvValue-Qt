@@ -17,7 +17,6 @@ QStringList GetOSPath()
         return ret;
 
     QString str = QString(baEnv);
-    // qDebug() << str;
 
 #ifdef Q_OS_WIN
     QRegularExpression rx("(\\;)"); // token is ;
