@@ -2,9 +2,10 @@
 #ifndef QT_GET_ENV_H
 #define QT_GET_ENV_H
 
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0) // using Qt (6 or higher version is recommended)
-
 #include <QtGlobal>
+
+#if QT_VERSION_MAJOR == 6
+
 #include <QString>
 #include <QStringList>
 #include <QByteArray>
@@ -19,10 +20,13 @@ namespace j2
         /// \return path list of OS
         QStringList GetOSPath();
 
+
+
+
     } // namespace Qt6
 
 } // namespace j2
 
-#endif // #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0) 
+#endif // QT_VERSION_MAJOR == 6
 
 #endif // #ifndef QT_GET_ENV_H

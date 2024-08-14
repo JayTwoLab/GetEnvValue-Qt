@@ -2,7 +2,7 @@
 
 #include "GetEnv.h"
 
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+#if QT_VERSION_MAJOR == 6
 
 namespace j2 {
 
@@ -12,20 +12,23 @@ QStringList GetOSPath()
 {
     QStringList ret;
 
-    QByteArray baEnv = qgetenv("PATH"); // use in Windows
+    QByteArray baEnv = qgetenv("PATH");
     if ( baEnv.length() == 0 )
         return ret;
 
     QString str = QString(baEnv);
 
+    QString pattern = "(\\:)";
+
 #ifdef Q_OS_WIN
-    QRegularExpression rx("(\\;)"); // token is ;
+     pattern = "(\\;)";
 #endif
-    
-#if defined(Q_OS_LINUX) || defined(Q_OS_MAC)  
-    QRegularExpression rx("(\\:)"); // token is :
-#endif     
-    ret = str.split(rx);
+
+#ifdef Q_OS_LINUX
+#endif
+
+#ifdef Q_OS_MAC
+#endif
 
 #ifdef Q_OS_ANDROID
 #endif
@@ -40,8 +43,10 @@ QStringList GetOSPath()
 #endif
 
 #ifdef Q_OS_OPENBSD
-#endif    
-    
+#endif
+
+    QRegularExpression rx( pattern );
+    ret = str.split(rx);
     return ret;
 }
 
