@@ -12,7 +12,7 @@
 
 - example code
 
-```
+```cpp
 // main.cpp
 
 #include <QCoreApplication>
